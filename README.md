@@ -17,6 +17,17 @@ NeosRulez:
   Neos:
     Cart:
       isNetCart: true
+      slots:
+        summary:
+          subTotal:
+            class: '\Acme\Package\Domain\Service\Cart\Summary\SubTotal' 
+              # executes the action "execute" and pass arguments to overrule the default action
+          taxes:
+            class: '\Acme\Package\Domain\Service\Cart\Summary\Taxes'
+              # executes the action "execute" and pass arguments to overrule the default action
+          total:
+            class: '\Acme\Package\Domain\Service\Cart\Summary\Total'
+              # executes the action "execute" and pass arguments to overrule the default action
 ```
 
 ## Usage

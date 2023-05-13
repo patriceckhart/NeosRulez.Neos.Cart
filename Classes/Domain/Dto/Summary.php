@@ -6,11 +6,24 @@ namespace NeosRulez\Neos\Cart\Domain\Dto;
  */
 
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use NeosRulez\Neos\Cart\Domain\JsonSerialize;
 use NeosRulez\Neos\Cart\Domain\Props;
 
 class Summary extends AbstractDto implements \JsonSerializable
 {
+
+    /**
+     * @Flow\InjectConfiguration(package="NeosRulez.Neos.Cart", path="slots.summary")
+     * @var array
+     */
+    protected $summarySlots = [];
+
+    /**
+     * @Flow\Inject
+     * @var ObjectManagerInterface
+     */
+    protected $objectManager;
 
     /**
      * @var array
@@ -42,7 +55,7 @@ class Summary extends AbstractDto implements \JsonSerializable
         foreach ($this->items as $item) {
             $result = $result + $item->getSubTotal();
         }
-        return $result;
+        return $this->overrule($result, 'subTotal');
     }
 
     /**
@@ -66,7 +79,7 @@ class Summary extends AbstractDto implements \JsonSerializable
                 $result[] = $taxItem;
             }
         }
-        return $result;
+        return $this->overrule($result, 'taxes');
     }
 
     /**
@@ -77,6 +90,23 @@ class Summary extends AbstractDto implements \JsonSerializable
         $result = 0;
         foreach ($this->items as $item) {
             $result = $result + $item->getTotal();
+        }
+        return $this->overrule($result, 'total');
+    }
+
+    /**
+     * @param mixed $argument
+     * @param string $action
+     * @return mixed
+     */
+    public function overrule(mixed $argument, string $action)
+    {
+        $result = $argument;
+        if(array_key_exists($action, $this->summarySlots)) {
+            if(array_key_exists('class', $this->summarySlots[$action])) {
+                $class = $this->objectManager->get($this->summarySlots['class']);
+                $result = $class->execute($argument);
+            }
         }
         return $result;
     }

@@ -5,6 +5,7 @@
     '@controller': 'Cart'
     '@package': 'NeosRulez.Neos.Cart'
     '@action': 'addItem'
+    '@format': 'json'
 -
   name: 'Update item in cart'
   uriPattern: 'cart/item/update'
@@ -12,6 +13,7 @@
     '@controller': 'Cart'
     '@package': 'NeosRulez.Neos.Cart'
     '@action': 'updateItem'
+    '@format': 'json'
 -
   name: 'Remove item from cart'
   uriPattern: 'cart/item/delete'
@@ -19,6 +21,7 @@
     '@controller': 'Cart'
     '@package': 'NeosRulez.Neos.Cart'
     '@action': 'deleteItem'
+    '@format': 'json'
 -
   name: 'Flush cart'
   uriPattern: 'cart/flush'
@@ -26,6 +29,7 @@
     '@controller': 'Cart'
     '@package': 'NeosRulez.Neos.Cart'
     '@action': 'flush'
+    '@format': 'json'
 -
   name: 'Add shipping to cart'
   uriPattern: 'cart/shipping/add'
@@ -33,6 +37,7 @@
     '@controller': 'Cart'
     '@package': 'NeosRulez.Neos.Cart'
     '@action': 'addShipping'
+    '@format': 'json'
 
 -
   name: 'Get items from cart'
@@ -41,6 +46,7 @@
     '@controller': 'Cart'
     '@package': 'NeosRulez.Neos.Cart'
     '@action': 'items'
+    '@format': 'json'
 -
   name: 'Get summary'
   uriPattern: 'cart/summary'
@@ -48,3 +54,4 @@
     '@controller': 'Cart'
     '@package': 'NeosRulez.Neos.Cart'
     '@action': 'summary'
+    '@format': 'json'

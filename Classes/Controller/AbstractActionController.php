@@ -7,11 +7,23 @@ namespace NeosRulez\Neos\Cart\Controller;
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Mvc\View\JsonView;
+use Neos\Fusion\View\FusionView;
 
 /**
  * @Flow\Scope("singleton")
  */
 abstract class AbstractActionController extends ActionController
 {
+
+    protected $defaultViewObjectName = JsonView::class;
+
+    /**
+     * @var array
+     */
+    protected $viewFormatToObjectNameMap = [
+        'html' => FusionView::class,
+        'json' => JsonView::class,
+    ];
 
 }

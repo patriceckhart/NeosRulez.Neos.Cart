@@ -1,6 +1,10 @@
 <?php
 namespace NeosRulez\Neos\Cart\Controller;
 
+/*
+ * This file is part of the NeosRulez.Neos.Cart package.
+ */
+
 use Neos\Flow\Annotations as Flow;
 use NeosRulez\Neos\Cart\Domain\Dto\Item;
 use NeosRulez\Neos\Cart\Domain\Dto\Shipping;

@@ -8,7 +8,6 @@ namespace NeosRulez\Neos\Cart\Controller;
 use Neos\Flow\Annotations as Flow;
 use NeosRulez\Neos\Cart\Domain\Dto\Item;
 use NeosRulez\Neos\Cart\Domain\Dto\Shipping;
-use NeosRulez\Neos\Cart\Domain\Dto\Summary;
 use NeosRulez\Neos\Cart\Domain\Model\Cart;
 
 /**

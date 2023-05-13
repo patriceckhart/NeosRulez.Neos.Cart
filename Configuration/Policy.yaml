@@ -1,5 +1,5 @@
 privilegeTargets:
-  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
     'NeosRulez.Neos.Cart:CartControllerActions':
       matcher: 'method(NeosRulez\Neos\Cart\Controller\CartController->.*Action())'
 

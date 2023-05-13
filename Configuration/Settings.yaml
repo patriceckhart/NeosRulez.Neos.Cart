@@ -1,0 +1,10 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'NeosRulez.Neos.Cart': true
+
+NeosRulez:
+  Neos:
+    Cart:
+      isNetCart: true

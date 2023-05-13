@@ -1,0 +1,50 @@
+-
+  name: 'Add item to cart'
+  uriPattern: 'cart/item/add'
+  defaults:
+    '@controller': 'Cart'
+    '@package': 'NeosRulez.Neos.Cart'
+    '@action': 'addItem'
+-
+  name: 'Update item in cart'
+  uriPattern: 'cart/item/update'
+  defaults:
+    '@controller': 'Cart'
+    '@package': 'NeosRulez.Neos.Cart'
+    '@action': 'updateItem'
+-
+  name: 'Remove item from cart'
+  uriPattern: 'cart/item/delete'
+  defaults:
+    '@controller': 'Cart'
+    '@package': 'NeosRulez.Neos.Cart'
+    '@action': 'deleteItem'
+-
+  name: 'Flush cart'
+  uriPattern: 'cart/flush'
+  defaults:
+    '@controller': 'Cart'
+    '@package': 'NeosRulez.Neos.Cart'
+    '@action': 'flush'
+-
+  name: 'Add shipping to cart'
+  uriPattern: 'cart/shipping/add'
+  defaults:
+    '@controller': 'Cart'
+    '@package': 'NeosRulez.Neos.Cart'
+    '@action': 'addShipping'
+
+-
+  name: 'Get items from cart'
+  uriPattern: 'cart/items'
+  defaults:
+    '@controller': 'Cart'
+    '@package': 'NeosRulez.Neos.Cart'
+    '@action': 'items'
+-
+  name: 'Get summary'
+  uriPattern: 'cart/summary'
+  defaults:
+    '@controller': 'Cart'
+    '@package': 'NeosRulez.Neos.Cart'
+    '@action': 'summary'

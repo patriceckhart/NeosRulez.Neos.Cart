@@ -1,5 +1,5 @@
 {
-    "description": "A shopping cart package for neos flow applications.",
+    "description": "A shopping cart package for Neos Flow applications.",
     "type": "neos-package",
     "name": "neosrulez/neos-cart",
     "require": {

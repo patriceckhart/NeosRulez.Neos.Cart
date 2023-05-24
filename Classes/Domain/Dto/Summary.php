@@ -102,10 +102,12 @@ class Summary extends AbstractDto implements \JsonSerializable
     public function overrule(mixed $argument, string $action)
     {
         $result = $argument;
-        if(array_key_exists($action, $this->summarySlots)) {
-            if(array_key_exists('class', $this->summarySlots[$action])) {
-                $class = $this->objectManager->get($this->summarySlots['class']);
-                $result = $class->execute($argument);
+        if($this->summarySlots !== null) {
+            if(array_key_exists($action, $this->summarySlots)) {
+                if(array_key_exists('class', $this->summarySlots[$action])) {
+                    $class = $this->objectManager->get($this->summarySlots['class']);
+                    $result = $class->execute($argument);
+                }
             }
         }
         return $result;

@@ -8,9 +8,40 @@ namespace NeosRulez\Neos\Cart\Domain\Dto;
 use Neos\Flow\Annotations as Flow;
 use NeosRulez\Neos\Cart\Domain\JsonSerialize;
 use NeosRulez\Neos\Cart\Domain\Props;
+use Neos\Flow\Utility\Algorithms;
 
 class Item extends AbstractDto implements \JsonSerializable
 {
+
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        $this->identifier = Algorithms::generateRandomToken(24);
+    }
+
+    /**
+     * @var string
+     */
+    protected $identifier = '';
+
+    /**
+     * @param string $identifier
+     * @return void
+     */
+    public function setIdentifier(string $identifier): void
+    {
+        $this->identifier = $identifier;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdentifier(): string
+    {
+        return $this->identifier;
+    }
 
     /**
      * @var string
@@ -18,9 +49,9 @@ class Item extends AbstractDto implements \JsonSerializable
     protected $sku;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSku(): string
+    public function getSku(): string|null
     {
         return $this->sku;
     }
@@ -40,9 +71,9 @@ class Item extends AbstractDto implements \JsonSerializable
     protected $price;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPrice(): float
+    public function getPrice(): float|null
     {
         return $this->price;
     }
@@ -62,9 +93,9 @@ class Item extends AbstractDto implements \JsonSerializable
     protected $tax;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getTax(): float
+    public function getTax(): float|null
     {
         return $this->tax;
     }
@@ -84,9 +115,9 @@ class Item extends AbstractDto implements \JsonSerializable
     protected $quantity;
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getQuantity(): float
+    public function getQuantity(): float|null
     {
         return $this->quantity;
     }
@@ -123,14 +154,6 @@ class Item extends AbstractDto implements \JsonSerializable
     public function getTaxValue(): float
     {
         return ($this->getSubTotal() / 100) * $this->getTax();
-    }
-
-    /**
-     * @return string
-     */
-    public function getIdentifier(): string
-    {
-        return base64_encode($this->getSku());
     }
 
 }

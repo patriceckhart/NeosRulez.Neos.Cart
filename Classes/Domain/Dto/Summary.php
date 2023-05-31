@@ -55,7 +55,22 @@ class Summary extends AbstractDto implements \JsonSerializable
         foreach ($this->items as $item) {
             $result = $result + $item->getSubTotal();
         }
+        if($this->isNetCart === false) {
+            $result = $result - $this->getTotalTaxValue();
+        }
         return $this->overrule($result, 'subTotal');
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalTaxValue(): float
+    {
+        $result = 0.00;
+        foreach ($this->getTaxes() as $tax) {
+            $result = $result + $tax['sum'];
+        }
+        return $result;
     }
 
     /**
